@@ -38,6 +38,21 @@ breadcrumbs: true  # disabled by default
 breadcrumb_home_label : "Blog"
 breadcrumb_separator  : "/"
 
+# Enable comments for all posts
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      comments: true
+
+# Enable Disqus
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "yzgyyang"
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
