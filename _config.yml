@@ -23,6 +23,15 @@ url: "http://blog.charlieyang.me" # the base hostname & protocol for your site, 
 twitter_username: yzgyyang
 github_username:  yzgyyang
 
+# Author settings
+author:
+  name     : "Guangyuan Yang"
+  avatar   : "/assets/images/bio-photo.jpg"
+  bio      : "Welcome to my thoughts gathering place."
+  location : Waterloo, ON
+  email    : yzgyyang@outlook.com
+  uri      : "http://charlieyang.me"
+
 # Build settings
 markdown: kramdown
 theme: minimal-mistakes-jekyll
