@@ -38,6 +38,9 @@ breadcrumbs: true  # disabled by default
 breadcrumb_home_label : "Blog"
 breadcrumb_separator  : "/"
 
+# Permalink
+permalink: /:categories/:year:month/:title.html # default: /:categories/:year/:month/:day/:title.html
+
 # Enable comments for all posts
 defaults:
   # _posts
