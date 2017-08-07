@@ -58,12 +58,19 @@ defaults:
       type: posts
     values:
       comments: true
+      read_time: true
 
 # Enable Disqus
 comments:
   provider: "disqus"
   disqus:
     shortname: "yzgyyang"
+
+# Analytics
+analytics:
+  provider: "google-universal"
+  google:
+    tracking_id: "UA-90885500-3"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
