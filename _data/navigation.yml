@@ -1,5 +1,9 @@
 # main links
 main:
+  - title: "By Year"
+    url: /year/
+  - title: "By Category"
+    url: /categories/
   - title: "Personal Website"
     url: http://www.charlieyang.me
   # - title: "About"
