@@ -67,7 +67,7 @@ words_per_minute: 100
 comments:
   provider: "disqus"
   disqus:
-    shortname: "yzgyyang"
+    shortname: "blog-charlieyang"
 
 # Analytics
 analytics:
