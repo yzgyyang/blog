@@ -60,6 +60,9 @@ defaults:
       comments: true
       read_time: true
 
+# Estimated speed for read time (default 200)
+words_per_minute: 100
+
 # Enable Disqus
 comments:
   provider: "disqus"
