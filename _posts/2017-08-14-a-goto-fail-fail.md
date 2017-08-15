@@ -1,12 +1,12 @@
 ---
 layout: single
 title:  "A 'goto fail' fail"
-date:   2017-08-12 00:00:00 -0400
+date:   2017-08-14 21:43:48 -0400
 categories: tech-story
 author_profile: true
 ---
 
-## A warm, peaceful Tuesday afternoon...
+# A warm, peaceful Tuesday afternoon...
 
 At office, I was developing a patch to the FreeBSD userland [acpidump(8)](https://www.freebsd.org/cgi/man.cgi?query=acpidump&sektion=8) tool to report ACPI NVDIMM information in a user-friendly manner. The implementation seemed to be pretty straightforward. Then I noticed the following error-handling condition in code:
 
@@ -27,9 +27,9 @@ An hour later, I was desperately staring at the screen and scratching my head, w
 
 So what am I doing wrong, and what exactly did Apple do?
 
-## `goto fail`
+# `goto fail`
 
-### The Famous Apple Inc.'s `goto fail` story
+## The Famous Apple Inc.'s `goto fail` story
 
 > On 2014-02-21, Apple released a security update for its implementation of SSL/TLS in many versions of its operating system. It is formally named CVE-2014-1266, but informally it’s often referenced as the Apple “goto fail” vulnerability (or “goto fail goto fail” vulnerability).
 
@@ -61,7 +61,7 @@ Or is that the case?
 
 The real problem here is that the indentation is very misleading. There are no curly braces after the `if` statement. That is, if the `if` statement failed, the second `goto fail` will be executed, with no errors to report. Notice that the second `goto fail` also skipped the rest of the tests. As a result, the function will return 0 (all OK) in every case.
 
-### How bad could it be?
+## How bad could it be?
 
 The bug itself seems simple and silly, however, the impact of this issue is quite serious and disturbing.
 
@@ -71,7 +71,7 @@ This made it easy for attackers to do [Man-in-the-middle attacks](https://en.wik
 
 ![About the security content of iOS 7.0.6](/assets/images/apple-ios706.jpg)
 
-### What caused this?
+## What caused this?
 
 I didn't find any official reports anywhere on the Internet. However, I do have some good guesses of possible causes:
 
@@ -80,9 +80,9 @@ I didn't find any official reports anywhere on the Internet. However, I do have 
 - Code review with naked eye
 - There must be something wrong with the coding style.
 
-## Thoughts
+# Thoughts
 
-### About coding style
+## About coding style
 
 The debate of curly braces (or Vim / Emacs, or Tab / Space) has never stopped in the community. However, it would now be obvious that which one is more correct:
 
@@ -132,7 +132,7 @@ if(check() == true)
 if(condition) statement;
 ```
 
-### About testing
+## About testing
 
 Using static analysis methods, unreachable code could be properly detected and checked. Sadly, warning flags are not available in this case.
 
@@ -140,15 +140,15 @@ Using static analysis methods, unreachable code could be properly detected and c
 
 As David A. Wheeler suggested in [this article](https://www.dwheeler.com/essays/apple-goto-fail.html), dynamic analysis methods like thorough negative testing in test cases should also be addressed.
 
-### About code merge
+## About code merge
 
 The problem could also be caused by a merge operation. That being said, maybe both versions of code were correct before code merge. Always do a review and **never** fully trust the auto-merge tools.
 
-## Conclusion
+# Conclusion
 
 I couldn't imagine this being an issue that I would write a blog post about. I couldn't even imagine myself writing such code before I literally wrote it myself. But as the Apple developers have told us in the code, if you do not care enough about the code quality and not try to follow good practices in your career, you will likely just `goto fail`!
 
-## References
+# References
 
 [Apple's code which caused the `goto fail` vulnerability](https://opensource.apple.com/source/Security/Security-55471/libsecurity_ssl/lib/sslKeyExchange.c)
 
